@@ -10,3 +10,10 @@
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
+
+# Build
+tmp/
+
+# node.js
+node_modules/
+yarn.lock

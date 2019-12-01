@@ -1,0 +1,26 @@
+{
+  "name": "ledger-api",
+  "version": "1.0.0",
+  "description": "Ledger api service manages accounts, transactions, to-do list,etc.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node ./build/dev.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yunling2003/ledger-api.git"
+  },
+  "keywords": [
+    "ledger",
+    "api"
+  ],
+  "author": "Leon Ling",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yunling2003/ledger-api/issues"
+  },
+  "homepage": "https://github.com/yunling2003/ledger-api#readme",
+  "devDependencies": {
+    "shelljs": "^0.8.3"
+  }
+}
