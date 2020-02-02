@@ -15,5 +15,9 @@ func Route() *gin.Engine {
 
 	r.GET("/", ctrl.SayHello)
 
+	var issue ctrl.Issue
+	r.GET("/api/issues", issue.GetAllIssues)
+	r.POST("/api/issue/add", issue.AddIssue)
+
 	return r
 }

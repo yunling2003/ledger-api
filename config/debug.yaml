@@ -1,3 +1,4 @@
 #debug
 
 port: 8080
+mongourl: 'mongodb://localhost:27017'

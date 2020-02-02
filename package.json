@@ -4,7 +4,8 @@
   "description": "Ledger api service manages accounts, transactions, to-do list,etc.",
   "main": "index.js",
   "scripts": {
-    "dev": "node ./build/dev.js"
+    "dev": "node ./build/dev.js",
+    "build": "node ./build/build_linux.js"
   },
   "repository": {
     "type": "git",
