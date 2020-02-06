@@ -13,14 +13,7 @@ type Issue struct{}
 
 // GetAllIssues is action
 func (*Issue) GetAllIssues(c *gin.Context) {
-	var issue orm.Issue
-	issues, err := issue.GetAllIssues()
-	if err != nil {
-		renderError(c, err)
-		return
-	}
-
-	renderJSON(c, &issues)
+	returnAllIssues(c)
 }
 
 // GetIssue is action
@@ -59,7 +52,8 @@ func (*Issue) AddIssue(c *gin.Context) {
 			renderError(c, err)
 			return
 		}
-		renderJSON(c, &ormObj)
+
+		returnAllIssues(c)
 	}
 }
 
@@ -77,7 +71,7 @@ func (*Issue) UpdateIssue(c *gin.Context) {
 		return
 	}
 
-	renderJSON(c, &ormObj)
+	returnAllIssues(c)
 }
 
 // DeleteIssue is action
@@ -94,7 +88,7 @@ func (*Issue) DeleteIssue(c *gin.Context) {
 		return
 	}
 
-	renderSuccessMessage(c, "done")
+	returnAllIssues(c)
 }
 
 // GetStatusReport is action
@@ -134,4 +128,15 @@ func (*Issue) GetNewReport(c *gin.Context) {
 
 	var retStatus = []int{newCount, oldCount}
 	renderJSON(c, &retStatus)
+}
+
+func returnAllIssues(c *gin.Context) {
+	var issue orm.Issue
+	issues, err := issue.GetAllIssues()
+	if err != nil {
+		renderError(c, err)
+		return
+	}
+
+	renderJSON(c, &issues)
 }
