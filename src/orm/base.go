@@ -4,6 +4,7 @@ import (
 	"ledger-api/src/config"
 
 	"log"
+	"os"
 
 	"gopkg.in/mgo.v2"
 )
@@ -13,7 +14,11 @@ var (
 )
 
 func init() {
-	mongoURL := config.All["mongourl"]
+	var mongoURL string
+	if mongoURL = os.Getenv("MONGOURL"); mongoURL == "" {
+		mongoURL = config.All["mongourl"]
+	}
+
 	log.Println("mongo url is: " + mongoURL)
 	session, err := mgo.Dial(mongoURL)
 	if err != nil {
